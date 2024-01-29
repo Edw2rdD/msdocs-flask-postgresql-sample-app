@@ -70,7 +70,7 @@ def getThanksCntByUserId(userid):
     dateOneMonthBefore = date.today() - relativedelta(month=-1)
     dateOneYearBefore = date.today() - relativedelta(year=-1)
 
-    allUsersThanks = userThanksTotalCnt = Thanks.query.where(Thanks.userFor == userid).count();
+    allUsersThanks = userThanksTotalCnt = Thanks.query.where(Thanks.userFor == userid).count()
     monthUsersThanks = userThanksTotalCnt = Thanks.query.where(Thanks.userFor == userid).where(Thanks.createDate <= dateOneMonthBefore).count()
     yearUsersThanks = userThanksTotalCnt = Thanks.query.where(Thanks.userFor == userid).where(Thanks.createDate <=  dateOneYearBefore).count()
 
