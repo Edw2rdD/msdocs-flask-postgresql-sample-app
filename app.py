@@ -40,7 +40,7 @@ from datetime import date
 from dateutil.relativedelta import relativedelta
 
 @app.route('/test', methods=['GET'])
-def index():    
+def test():    
     return "this is test API which can return any data from database of get data to save in database"
 
 #Save user thank
