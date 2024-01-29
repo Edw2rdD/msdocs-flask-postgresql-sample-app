@@ -25,6 +25,14 @@ def upgrade():
     sa.Column('description', sa.String(length=250), nullable=True),
     sa.PrimaryKeyConstraint('id')
     )
+    op.create_table('thanks',
+    sa.Column('id', sa.Integer(), nullable=False),
+    sa.Column('createDate', sa.DateTime(), nullable=False),
+    sa.Column('createUser', sa.String(length=100), nullable=False),
+    sa.Column('userFor', sa.String(length=100), nullable=False),
+    sa.Column('thanksText', sa.String(length=2500), nullable=True),
+    sa.PrimaryKeyConstraint('id')
+    )
     op.create_table('review',
     sa.Column('id', sa.Integer(), nullable=False),
     sa.Column('restaurant', sa.Integer(), nullable=True),
