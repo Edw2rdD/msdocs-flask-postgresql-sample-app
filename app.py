@@ -56,6 +56,7 @@ def addThank():
     db.session.commit()
     return "thanks saved"
 
+
 #Get all user thanks
 @app.route('/thanks/<int:userid>', methods=['GET'])
 def getThanksByUserId(userid):     
