@@ -3,6 +3,13 @@ from sqlalchemy.orm import validates
 
 from app import db
 
+class Thanks(db.Model):
+    __tablename__ = 'thanks'
+    id = Column(Integer, primary_key=True)
+    createDate = Column(DateTime)
+    createUser = Column(String(100))
+    userFor = Column(String(100))
+    thanksText = Column(String(2500))
 
 class Restaurant(db.Model):
     __tablename__ = 'restaurant'
