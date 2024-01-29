@@ -1,7 +1,7 @@
 import os
-from datetime import datetime
+#from datetime import datetime
 
-from flask import Flask, redirect, render_template, request, send_from_directory, url_for
+from flask import Flask, redirect, render_template, request, send_from_directory
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
@@ -32,7 +32,9 @@ db = SQLAlchemy(app)
 migrate = Migrate(app, db)
 
 # The import must be done after db initialization due to circular import issue
-from models import Restaurant, Review, Thanks
+
+#from models import Restaurant, Review, Thanks
+from models import Thanks
 
 from datetime import date
 from dateutil.relativedelta import relativedelta
@@ -63,7 +65,7 @@ def getThanksByUserId(userid):
 
 #Get all user thanks
 @app.route('/thanks/count/<int:userid>', methods=['GET'])
-def getThanksByUserId(userid): 
+def getThanksCntByUserId(userid): 
    
     dateOneMonthBefore = date.today() - relativedelta(month=-1)
     dateOneYearBefore = date.today() - relativedelta(year=-1)
@@ -78,9 +80,10 @@ def getThanksByUserId(userid):
 
 @app.route('/', methods=['GET'])
 def index():
-    print('Request for index page received')
-    restaurants = Restaurant.query.all()
-    return render_template('index.html', restaurants=restaurants)
+    # print('Request for index page received')
+    # restaurants = Restaurant.query.all()
+    # return render_template('index.html', restaurants=restaurants)
+    return "API for UZMTO portal"
 
 
 # @app.route('/<int:id>', methods=['GET'])
