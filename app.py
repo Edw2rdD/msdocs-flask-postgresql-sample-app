@@ -58,14 +58,14 @@ def addThank():
 
 
 #Get all user thanks
-@app.route('/thanks/<int:userid>', methods=['GET'])
+@app.route('/thanks/<string:userid>', methods=['GET'])
 def getThanksByUserId(userid):     
     userThanks = Thanks.query.where(Thanks.userFor == userid)
     return userThanks
 
 
 #Get all user thanks
-@app.route('/thanks/count/<int:userid>', methods=['GET'])
+@app.route('/thanks/count/<string:userid>', methods=['GET'])
 def getThanksCntByUserId(userid): 
    
     dateOneMonthBefore = date.today() - relativedelta(month=-1)
