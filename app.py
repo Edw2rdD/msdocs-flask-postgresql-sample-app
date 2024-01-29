@@ -34,6 +34,10 @@ migrate = Migrate(app, db)
 # The import must be done after db initialization due to circular import issue
 from models import Restaurant, Review
 
+@app.route('/test', methods=['GET'])
+def index():    
+    return "this is test API which can return any data from database of get data to save in database"
+
 @app.route('/', methods=['GET'])
 def index():
     print('Request for index page received')
