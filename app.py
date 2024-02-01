@@ -42,9 +42,9 @@ from models import Thanks
 from datetime import date
 from dateutil.relativedelta import relativedelta
 
-@app.route('/test', methods=['GET'])
+@app.route('/api/health', methods=['GET'])
 def test():    
-    return "this is test API which can return any data from database of get data to save in database"
+    return "i'm running"
 
 #Save user thank
 @app.route('/thanks', methods=['POST'])
