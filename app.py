@@ -5,13 +5,13 @@ from flask import Flask, redirect, render_template, request, send_from_directory
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
-from flask_cors import CORS
+#from flask_cors import CORS
 
 
 app = Flask(__name__, static_folder='static')
 #csrf = CSRFProtect(app)
 
-CORS(app)
+#CORS(app)
 
 # WEBSITE_HOSTNAME exists only in production environment
 if 'WEBSITE_HOSTNAME' not in os.environ:
