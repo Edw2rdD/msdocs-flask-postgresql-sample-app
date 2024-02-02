@@ -1,7 +1,7 @@
 import os
 #from datetime import datetime
 
-from flask import Flask, redirect, render_template, request, send_from_directory
+from flask import Flask, redirect, render_template, request, send_from_directory, jsonify
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
@@ -67,12 +67,12 @@ def addThank():
 
 
 #Get all user thanks
-@app.route('/api/thanks/<userid>', methods=['GET'])
+@app.route('/api/thanks/<str:userid>', methods=['GET'])
 def getThanksByUserId(userid):    
 
     print("userid is"  + userid) 
-    userThanks = Thanks.query.where(Thanks.userFor == userid)
-    return userThanks
+    userThanks = Thanks.query.where(Thanks.userFor == userid).all()
+    return jsonify(userThanks)
 
 
 #Get all user thanks
