@@ -72,6 +72,7 @@ def getThanksByUserId(userid):
 
     print("userid is"  + userid) 
     userThanks = Thanks.query.where(Thanks.userFor == userid).all()
+    print(userThanks) 
     return jsonify(userThanks)
 
 
