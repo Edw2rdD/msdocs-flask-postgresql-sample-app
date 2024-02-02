@@ -12,10 +12,6 @@
 {% block content %}
     <h1>Add New Thanks</h1>
 
-    thank.createUser = request.values.get('create_user')
-    thank.userFor = request.values.get('user_for')
-    thank.thanksText = request.values.get('thanks_text')
-
     <form method="POST" action="{{ url_for('addThank') }}">
         <div class="mb-3">
           <label for="create_user" class="form-label">create_user</label>

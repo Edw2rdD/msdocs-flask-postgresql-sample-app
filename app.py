@@ -68,7 +68,9 @@ def addThank():
 
 #Get all user thanks
 @app.route('/api/thanks/<userid>', methods=['GET'])
-def getThanksByUserId(userid):     
+def getThanksByUserId(userid):    
+
+    print("userid is"  + userid) 
     userThanks = Thanks.query.where(Thanks.userFor == userid)
     return userThanks
 
