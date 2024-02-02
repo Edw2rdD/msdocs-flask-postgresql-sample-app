@@ -5,6 +5,7 @@ from flask import Flask, redirect, render_template, request, send_from_directory
 from flask_migrate import Migrate
 from flask_sqlalchemy import SQLAlchemy
 from flask_wtf.csrf import CSRFProtect
+import json
 #from flask_cors import CORS
 
 
@@ -73,7 +74,7 @@ def getThanksByUserId(userid:str):
     print("userid is"  + userid) 
     userThanks = Thanks.query.where(Thanks.userFor == userid).all()
     print(userThanks) 
-    return jsonify(userThanks)
+    return json.dumps(userThanks)
 
 
 #Get all user thanks
