@@ -47,7 +47,7 @@ def test():
     return "i'm running"
 
 @app.route('/thanks/create', methods=['GET'])
-def thanksCreateTemplate(id):
+def thanksCreateTemplate():
     # restaurant = Restaurant.query.where(Restaurant.id == id).first()
     # reviews = Review.query.where(Review.restaurant == id)
     return render_template('create_thanks.html')
