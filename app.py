@@ -46,8 +46,14 @@ from dateutil.relativedelta import relativedelta
 def test():    
     return "i'm running"
 
+@app.route('/thanks/create', methods=['GET'])
+def thanksCreateTemplate(id):
+    # restaurant = Restaurant.query.where(Restaurant.id == id).first()
+    # reviews = Review.query.where(Review.restaurant == id)
+    return render_template('create_thanks.html')
+
 #Save user thank
-@app.route('/thanks', methods=['POST'])
+@app.route('/api/thanks', methods=['POST'])
 def addThank(): 
     #Get input data from request      
     thank = Thanks()
@@ -61,14 +67,14 @@ def addThank():
 
 
 #Get all user thanks
-@app.route('/thanks/<userid>', methods=['GET'])
+@app.route('/api/thanks/<userid>', methods=['GET'])
 def getThanksByUserId(userid):     
     userThanks = Thanks.query.where(Thanks.userFor == userid)
     return userThanks
 
 
 #Get all user thanks
-@app.route('/thanks/count/<userid>', methods=['GET'])
+@app.route('/api/thanks/count/<userid>', methods=['GET'])
 def getThanksCntByUserId(userid): 
    
     dateOneMonthBefore = date.today() - relativedelta(month=-1)

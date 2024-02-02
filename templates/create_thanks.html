@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% block title %}Thanks Create{% endblock %}
+{% block head %}
+    {{ super() }}
+    <style>
+      body {
+          min-height: 75rem;
+          padding-top: 4.5rem;
+      }
+  </style>
+{% endblock %}
+{% block content %}
+    <h1>Add New Thanks</h1>
+
+    thank.createUser = request.values.get('create_user')
+    thank.userFor = request.values.get('user_for')
+    thank.thanksText = request.values.get('thanks_text')
+
+    <form method="POST" action="{{ url_for('addThank') }}">
+        <div class="mb-3">
+          <label for="create_user" class="form-label">create_user</label>
+          <input type="text" class="form-control" id="create_user" name="create_user">
+        </div>
+        <div class="mb-3">
+          <label for="user_for" class="form-label">user_for</label>
+          <input type="text" class="form-control" id="user_for" name="user_for">
+        </div>
+        <div class="mb-3">
+            <label for="thanks_text" class="form-label">Description</label>
+            <input type="text" class="form-control" id="thanks_text" name="thanks_text">
+        </div>
+        <button type="submit" class="btn btn-primary">Submit</button>
+        <button type="cancel" class="btn btn-primary">Cancel</button>
+    </form>
+{% endblock %}
+    
