@@ -67,7 +67,7 @@ def addThank():
 
 
 #Get all user thanks
-@app.route('/api/thanks/<userid>', methods=['GET'])
+@app.route('/api/thanks/<string:userid>', methods=['GET'])
 def getThanksByUserId(userid:str):    
 
     print("userid is"  + userid) 
